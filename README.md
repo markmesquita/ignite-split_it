@@ -1,6 +1,6 @@
 # split_it
 
-A new Flutter project.
+Payment split app between friends - An Ignite project from Rocketseat
 
 ## Getting Started
 
