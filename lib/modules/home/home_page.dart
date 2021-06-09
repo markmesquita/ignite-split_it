@@ -1,27 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:split_it/modules/home/home_controller.dart';
+import 'package:split_it/modules/home/home_state.dart';
 import 'package:split_it/modules/home/widgets/app_bar_widget.dart';
+import 'package:split_it/modules/home/widgets/event_tile_widget.dart';
 import 'package:split_it/modules/login/models/user_model.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final controller = HomeController();
+
+  @override
+  void initState() {
+    controller.getEvents(() => setState(() {}));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final UserModel user =
         ModalRoute.of(context)!.settings.arguments as UserModel;
     return Scaffold(
-      appBar: AppBarWidget(user: user),
-      body: Container(),
-      // AppBar(
-      //   leading: ClipRRect(
-      //     borderRadius: BorderRadius.circular(8),
-      //     child: Image.network(
-      //       user.photoUrl!,
-      //       fit: BoxFit.cover,
-      //       width: 56,
-      //       height: 56,
-      //     ),
-      //   ),
-      //   title: Text(user.name!),
-      // ),
+      appBar: AppBarWidget(
+        user: user,
+        onTapAddButton: () {
+          print("clicou");
+        },
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              if (controller.state is HomeStateLoading) ...[
+                Center(child: Container(child: CircularProgressIndicator())),
+              ] else if (controller.state is HomeStateSuccess) ...[
+                ...(controller.state as HomeStateSuccess)
+                    .events
+                    .map((e) => EventTileWidget(model: e))
+                    .toList(),
+              ] else if (controller.state is HomeStateFailure) ...[
+                Center(
+                    child:
+                        Text((controller.state as HomeStateFailure).message)),
+              ] else ...[
+                Center(
+                  child: Container(child: Text("no register until now")),
+                )
+              ]
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

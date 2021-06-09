@@ -10,6 +10,12 @@ abstract class AppColors {
   Color get cardIconRed;
   Color get cardTextGreen;
   Color get cardTextRed;
+  Color get iconAddButton;
+  Color get titleTile;
+  Color get subtitleTile;
+  Color get valueTile;
+  Color get peopleTile;
+  Color get divider;
 }
 
 class AppColorsDefault implements AppColors {
@@ -29,14 +35,32 @@ class AppColorsDefault implements AppColors {
   Color get border => Color(0xFFDCE0E5);
 
   @override
-  Color get cardIconGreen => Color(0x5540B28C);
+  Color get cardIconGreen => Color(0xFF40B28C);
 
   @override
-  Color get cardIconRed => Color(0x55E83F5B);
+  Color get cardIconRed => Color(0xFFE83F5B);
 
   @override
   Color get cardTextGreen => Color(0xFF40B28C);
 
   @override
   Color get cardTextRed => Color(0xFFE83F5B);
+
+  @override
+  Color get iconAddButton => Color(0xFFF5F5F5);
+
+  @override
+  Color get titleTile => Color(0xFF455250);
+
+  @override
+  Color get subtitleTile => Color(0xFF666666);
+
+  @override
+  Color get valueTile => Color(0xFF666666);
+
+  @override
+  Color get peopleTile => Color(0xFFA4B2AE);
+
+  @override
+  Color get divider => Color(0xFF666666);
 }

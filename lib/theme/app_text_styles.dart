@@ -10,6 +10,10 @@ abstract class AppTextStyles {
   TextStyle get cardLabel;
   TextStyle get cardPriceGreen;
   TextStyle get cardPriceRed;
+  TextStyle get titleTile;
+  TextStyle get subtitleTile;
+  TextStyle get valueTile;
+  TextStyle get peopleTile;
 }
 
 class AppTextStyleDefault implements AppTextStyles {
@@ -52,5 +56,33 @@ class AppTextStyleDefault implements AppTextStyles {
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: AppTheme.colors.cardTextRed,
+      );
+
+  @override
+  TextStyle get subtitleTile => GoogleFonts.inter(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.subtitleTile,
+      );
+
+  @override
+  TextStyle get titleTile => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: AppTheme.colors.titleTile,
+      );
+
+  @override
+  TextStyle get valueTile => GoogleFonts.inter(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.valueTile,
+      );
+
+  @override
+  TextStyle get peopleTile => GoogleFonts.inter(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.peopleTile,
       );
 }
