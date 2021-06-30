@@ -14,7 +14,7 @@ class BottomAppBarWidget extends StatefulWidget {
 }
 
 class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
-  final controller = AppBarController();
+  final controller = AppBarController(null);
 
   @override
   void initState() {
