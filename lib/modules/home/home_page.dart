@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:split_it/modules/home/home_controller.dart';
 import 'package:split_it/modules/home/home_state.dart';
-import 'package:split_it/modules/home/widgets/app_bar_widget.dart';
+import 'package:split_it/modules/home/widgets/app_bar/app_bar_widget.dart';
 import 'package:split_it/modules/home/widgets/event_tile_widget.dart';
 import 'package:split_it/modules/login/models/user_model.dart';
 
@@ -36,7 +36,9 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               if (controller.state is HomeStateLoading) ...[
-                Center(child: Container(child: CircularProgressIndicator())),
+                Center(
+                  child: CircularProgressIndicator(),
+                ),
               ] else if (controller.state is HomeStateSuccess) ...[
                 ...(controller.state as HomeStateSuccess)
                     .events
@@ -44,11 +46,13 @@ class _HomePageState extends State<HomePage> {
                     .toList(),
               ] else if (controller.state is HomeStateFailure) ...[
                 Center(
-                    child:
-                        Text((controller.state as HomeStateFailure).message)),
+                  child: Text((controller.state as HomeStateFailure).message),
+                ),
               ] else ...[
                 Center(
-                  child: Container(child: Text("no register until now")),
+                  child: Container(
+                    child: Text("no register until now"),
+                  ),
                 )
               ]
             ],

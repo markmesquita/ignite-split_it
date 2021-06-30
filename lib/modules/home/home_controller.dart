@@ -5,17 +5,35 @@ import 'package:split_it/modules/home/repositories/home_repository_mock.dart';
 
 class HomeController {
   late HomeRepository repository;
+  Function(HomeState state)? onListen;
 
   HomeState state = HomeStateEmpty();
 
-  HomeController() {
-    repository = HomeRepositoryMock();
+  HomeController({HomeRepository? repository}) {
+    this.repository = repository ?? HomeRepositoryMock();
   }
 
   getEvents(VoidCallback onUpdate) async {
     state = HomeStateLoading();
-    final response = await repository.getEvents();
-    state = HomeStateSuccess(events: response);
+    update();
+    try {
+      final response = await repository.getEvents();
+      state = HomeStateSuccess(events: response);
+      update();
+    } catch (e) {
+      state = HomeStateFailure(message: e.toString());
+      update();
+    }
     onUpdate();
+  }
+
+  void update() {
+    if (onListen != null) {
+      onListen!(state);
+    }
+  }
+
+  listen(Function(HomeState state) onChange) {
+    onListen = onChange;
   }
 }

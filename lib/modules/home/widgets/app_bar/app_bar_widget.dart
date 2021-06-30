@@ -1,9 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 import 'package:split_it/modules/home/widgets/add_button_widget.dart';
-import 'package:split_it/modules/home/widgets/info_card_widget.dart';
+import 'package:split_it/modules/home/widgets/bottom_app_bar/bottom_app_bar_widget.dart';
 import 'package:split_it/modules/login/models/user_model.dart';
 import 'package:split_it/theme/app_theme.dart';
 
@@ -46,20 +44,7 @@ class AppBarWidget extends PreferredSize {
                       SizedBox(
                         height: 36,
                       ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: Platform.isAndroid
-                            ? MainAxisAlignment.spaceEvenly
-                            : MainAxisAlignment.spaceAround,
-                        children: [
-                          InfoCardWidget(
-                            price: 124,
-                          ),
-                          InfoCardWidget(
-                            price: -48,
-                          ),
-                        ],
-                      ),
+                      BottomAppBarWidget(),
                     ],
                   ),
                 ),
