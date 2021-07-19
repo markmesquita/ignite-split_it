@@ -30,7 +30,22 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
     switch (controller.state.runtimeType) {
       case AppBarStateLoading:
         {
-          return CircularProgressIndicator();
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: Platform.isAndroid
+                ? MainAxisAlignment.spaceEvenly
+                : MainAxisAlignment.spaceAround,
+            children: [
+              InfoCardWidget(
+                price: 0,
+                isLoading: true,
+              ),
+              InfoCardWidget(
+                price: 0,
+                isLoading: true,
+              ),
+            ],
+          );
         }
       case AppBarStateSuccess:
         {

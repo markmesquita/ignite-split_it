@@ -4,6 +4,7 @@ import 'package:split_it/modules/home/home_state.dart';
 import 'package:split_it/modules/home/widgets/app_bar/app_bar_widget.dart';
 import 'package:split_it/modules/home/widgets/event_tile_widget.dart';
 import 'package:split_it/modules/login/models/user_model.dart';
+import 'package:split_it/shared/models/event_model.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -40,7 +41,14 @@ class _HomePageState extends State<HomePage> {
             children: [
               if (controller.state is HomeStateLoading) ...[
                 Center(
-                  child: CircularProgressIndicator(),
+                  child: EventTileWidget(
+                    model: EventModel(
+                        title: "",
+                        created: DateTime.now(),
+                        value: 0,
+                        people: 0),
+                    isLoading: true,
+                  ),
                 ),
               ] else if (controller.state is HomeStateSuccess) ...[
                 ...(controller.state as HomeStateSuccess)

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:split_it/modules/home/widgets/icon_dollar_widget.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:split_it/modules/home/widgets/loading_widget.dart';
 
 import 'package:split_it/theme/app_theme.dart';
 
 class InfoCardWidget extends StatelessWidget {
   final double price;
+  final bool isLoading;
 
   InfoCardWidget({
     Key? key,
     required this.price,
+    this.isLoading = false,
   }) : super(key: key);
 
   TextStyle get priceStyle => price >= 0
@@ -43,10 +47,14 @@ class InfoCardWidget extends StatelessWidget {
                   price >= 0 ? "A receber" : "A pagar",
                   style: AppTheme.textStyles.cardLabel,
                 ),
-                Text(
-                  "R\$ ${(price >= 0 ? price : price * -1).toStringAsFixed(2)}",
-                  style: priceStyle,
-                ),
+                if (isLoading) ...[
+                  LoadingWidget(size: Size(98, 24)),
+                ] else ...[
+                  Text(
+                    "R\$ ${(price >= 0 ? price : price * -1).toStringAsFixed(2)}",
+                    style: priceStyle,
+                  ),
+                ]
               ],
             ),
           ],
