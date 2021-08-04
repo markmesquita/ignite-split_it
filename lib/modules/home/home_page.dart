@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBarWidget(
         user: user,
         onTapAddButton: () {
-          print("clicou");
+          Navigator.pushNamed(context, "/create_split", arguments: user);
         },
       ),
       body: Padding(
