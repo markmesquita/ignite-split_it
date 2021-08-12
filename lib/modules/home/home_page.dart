@@ -28,47 +28,71 @@ class _HomePageState extends State<HomePage> {
     final UserModel user =
         ModalRoute.of(context)!.settings.arguments as UserModel;
     return Scaffold(
-      appBar: AppBarWidget(
-        user: user,
-        onTapAddButton: () {
-          Navigator.pushNamed(context, "/create_split", arguments: user);
-        },
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              if (controller.state is HomeStateLoading) ...[
-                Center(
-                  child: EventTileWidget(
-                    model: EventModel(
-                        title: "",
-                        created: DateTime.now(),
-                        value: 0,
-                        people: 0),
-                    isLoading: true,
-                  ),
-                ),
-              ] else if (controller.state is HomeStateSuccess) ...[
-                ...(controller.state as HomeStateSuccess)
-                    .events
-                    .map((e) => EventTileWidget(model: e))
-                    .toList(),
-              ] else if (controller.state is HomeStateFailure) ...[
-                Center(
-                  child: Text((controller.state as HomeStateFailure).message),
-                ),
-              ] else ...[
-                Center(
-                  child: Container(
-                    child: Text("no register until now"),
-                  ),
-                )
-              ]
-            ],
+      // appBar: AppBarWidget(
+      //   user: user,
+      //   onTapAddButton: () {
+      //     Navigator.pushNamed(context, "/create_split", arguments: user);
+      //   },
+      // ),
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            backgroundColor: Colors.white,
+            floating: true,
+            expandedHeight: 300.0,
+            flexibleSpace: FlexibleSpaceBar(
+              background: AppBarWidget(
+                onTapAddButton: () {
+                  Navigator.pushNamed(
+                    context,
+                    "/create_split",
+                    arguments: user,
+                  );
+                },
+                user: user,
+              ),
+            ),
           ),
-        ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    if (controller.state is HomeStateLoading) ...[
+                      Center(
+                        child: EventTileWidget(
+                          model: EventModel(
+                              title: "",
+                              created: DateTime.now(),
+                              value: 0,
+                              people: 0),
+                          isLoading: true,
+                        ),
+                      ),
+                    ] else if (controller.state is HomeStateSuccess) ...[
+                      ...(controller.state as HomeStateSuccess)
+                          .events
+                          .map((e) => EventTileWidget(model: e))
+                          .toList(),
+                    ] else if (controller.state is HomeStateFailure) ...[
+                      Center(
+                        child: Text(
+                            (controller.state as HomeStateFailure).message),
+                      ),
+                    ] else ...[
+                      Center(
+                        child: Container(
+                          child: Text("no register until now"),
+                        ),
+                      )
+                    ]
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
