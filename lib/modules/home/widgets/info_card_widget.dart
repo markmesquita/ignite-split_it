@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:split_it/modules/home/widgets/icon_dollar_widget.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:split_it/modules/home/widgets/loading_widget.dart';
 
 import 'package:split_it/theme/app_theme.dart';

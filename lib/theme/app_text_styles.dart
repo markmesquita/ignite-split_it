@@ -16,6 +16,14 @@ abstract class AppTextStyles {
   TextStyle get peopleTile;
   TextStyle get stepperIndicatorPrimary;
   TextStyle get stepperIndicatorSecondary;
+  TextStyle get stepperNextButton;
+  TextStyle get stepperNextButtonDisabled;
+  TextStyle get stepTitle;
+  TextStyle get stepSubTitle;
+  TextStyle get hintTextField;
+  TextStyle get textField;
+  TextStyle get personName;
+  TextStyle get personNameAdded;
 }
 
 class AppTextStyleDefault implements AppTextStyles {
@@ -100,5 +108,61 @@ class AppTextStyleDefault implements AppTextStyles {
         fontSize: 14,
         fontWeight: FontWeight.w400,
         color: AppTheme.colors.stepperIndicatorSecondary,
+      );
+
+  @override
+  TextStyle get stepperNextButton => GoogleFonts.inter(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: AppTheme.colors.stepperNextButton,
+      );
+
+  @override
+  TextStyle get stepSubTitle => GoogleFonts.inter(
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.stepSubTitle,
+      );
+
+  @override
+  TextStyle get stepTitle => GoogleFonts.inter(
+        fontSize: 24,
+        fontWeight: FontWeight.w700,
+        color: AppTheme.colors.stepTitle,
+      );
+
+  @override
+  TextStyle get hintTextField => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.hintTextField,
+      );
+
+  @override
+  TextStyle get textField => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: AppTheme.colors.textField,
+      );
+
+  @override
+  TextStyle get stepperNextButtonDisabled => GoogleFonts.inter(
+        fontSize: 12,
+        fontWeight: FontWeight.w500,
+        color: AppTheme.colors.stepperNextButtonDisabled,
+      );
+
+  @override
+  TextStyle get personName => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: AppTheme.colors.personName,
+      );
+
+  @override
+  TextStyle get personNameAdded => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: AppTheme.colors.personNameAdded,
       );
 }
