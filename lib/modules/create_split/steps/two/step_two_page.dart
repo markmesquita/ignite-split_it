@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:split_it/modules/create_split/widget/person_tile_widget.dart';
 import 'package:split_it/modules/create_split/widget/step_input_text_widget.dart';
 import 'package:split_it/modules/create_split/widget/step_title_widget.dart';
+import 'package:split_it/shared/widgets/person_tile_widget.dart';
 
 class StepTwoPage extends StatefulWidget {
   final void Function(String value) onChange;

@@ -41,6 +41,9 @@ class EventTileWidget extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/event_details');
+                  },
                   contentPadding: EdgeInsets.zero,
                   title: isLoading
                       ? LoadingWidget(size: Size(81, 19))

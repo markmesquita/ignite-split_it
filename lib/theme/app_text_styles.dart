@@ -24,6 +24,14 @@ abstract class AppTextStyles {
   TextStyle get textField;
   TextStyle get personName;
   TextStyle get personNameAdded;
+  TextStyle get categoryName;
+  TextStyle get creditValue;
+  TextStyle get discountValue;
+  TextStyle get itemEvent;
+  TextStyle get itemBoldEvent;
+  TextStyle get totalEvent;
+  TextStyle get discountBottomValue;
+  TextStyle get discountBoldBottomValue;
 }
 
 class AppTextStyleDefault implements AppTextStyles {
@@ -164,5 +172,61 @@ class AppTextStyleDefault implements AppTextStyles {
         fontSize: 16,
         fontWeight: FontWeight.bold,
         color: AppTheme.colors.personNameAdded,
+      );
+
+  @override
+  TextStyle get categoryName => GoogleFonts.roboto(
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        color: AppTheme.colors.categoryName,
+      );
+
+  @override
+  TextStyle get creditValue => GoogleFonts.roboto(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.creditValue,
+      );
+
+  @override
+  TextStyle get discountValue => GoogleFonts.roboto(
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.discountValue,
+      );
+
+  @override
+  TextStyle get itemBoldEvent => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        color: AppTheme.colors.itemsEvent,
+      );
+
+  @override
+  TextStyle get itemEvent => GoogleFonts.inter(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.itemsEvent,
+      );
+
+  @override
+  TextStyle get totalEvent => GoogleFonts.roboto(
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        color: AppTheme.colors.itemsEvent,
+      );
+
+  @override
+  TextStyle get discountBottomValue => GoogleFonts.roboto(
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppTheme.colors.discountValue,
+      );
+
+  @override
+  TextStyle get discountBoldBottomValue => GoogleFonts.roboto(
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        color: AppTheme.colors.discountValue,
       );
 }

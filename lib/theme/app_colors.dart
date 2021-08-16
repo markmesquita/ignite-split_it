@@ -28,6 +28,13 @@ abstract class AppColors {
   Color get inputBorder;
   Color get personName;
   Color get personNameAdded;
+  Color get backgroundEventDetails;
+  Color get categoryName;
+  Color get creditValue;
+  Color get discountValue;
+  Color get marginColorCheckboxActive;
+  Color get marginColorCheckbox;
+  Color get itemsEvent;
 }
 
 class AppColorsDefault implements AppColors {
@@ -111,4 +118,25 @@ class AppColorsDefault implements AppColors {
 
   @override
   Color get personNameAdded => Color(0xFF666666);
+
+  @override
+  Color get backgroundEventDetails => Color(0xFFF0F1F1);
+
+  @override
+  Color get categoryName => Color(0xFF455250);
+
+  @override
+  Color get creditValue => Color(0xFF40B28C);
+
+  @override
+  Color get discountValue => Color(0xFFE83F5B);
+
+  @override
+  Color get marginColorCheckbox => Color(0xFFF0F1F1);
+
+  @override
+  Color get marginColorCheckboxActive => Color(0xFFE0F3ED);
+
+  @override
+  Color get itemsEvent => Color(0xFF455250);
 }
