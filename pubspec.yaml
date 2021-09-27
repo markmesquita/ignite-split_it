@@ -14,12 +14,19 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   google_fonts: ^2.1.0
+  #firebase
   firebase_core: ^1.2.0
+  #social login
   google_sign_in: ^5.0.4
   sign_in_with_apple: ^3.0.0
+  #facilitar os testes
   mocktail: ^0.1.4
+  #loadings
   shimmer: ^2.0.0
   intl: ^0.17.0
+  #gerencia de estado
+  mobx: ^2.0.4
+  flutter_mobx: ^2.0.2
 
 dev_dependencies:
   flutter_test:
